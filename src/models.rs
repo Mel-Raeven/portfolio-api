@@ -12,3 +12,15 @@ pub struct Project {
     pub imgtwo: String
 
 }
+
+use crate::schema::projects;
+
+#[derive(Insertable)]
+#[diesel(table_name = projects)]
+pub struct NewProject<'a> {
+    pub title: &'a str,
+    pub bodyone: &'a str,
+    pub bodytwo: &'a str,
+    pub imgone: &'a str,
+    pub imgtwo: &'a str,
+}

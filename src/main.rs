@@ -5,7 +5,6 @@ use portfolioCMS::*;
 
 #[get("/")]
 fn index() {
-    println!("hit!");
     use portfolioCMS::schema::projects::dsl::*;
 
     let connection = &mut establish_connection();
@@ -24,8 +23,28 @@ fn index() {
     }
 }
 
+#[get("/create")]
+fn create() {
+    let connection = &mut establish_connection();
+
+    let mut title = String::new();
+    let mut bodyone = String::new();
+    let mut bodytwo = String::new();
+    let mut imgone = String::new();
+    let mut imgtwo = String::new();
+
+    let title = "mumble";
+    let bodyone = "test";
+    let bodytwo = "test";
+    let imgone = "test";
+    let imgtwo = "test";
+
+    let project = create_project(connection, title, &bodyone, &bodytwo, &imgone, &imgtwo);
+    println!("\nSaved draft {} with id {}", title, project.id);
+}
+
 #[launch]
 fn rocket() -> _ {
-    rocket::build().mount("/", routes![index])
+    rocket::build().mount("/", routes![index, create])
 }
 
