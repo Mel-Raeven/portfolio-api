@@ -1,0 +1,8 @@
+CREATE TABLE projects (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR NOT NULL,
+  bodyOne TEXT NOT NULL,
+  bodyTwo TEXT NOT NULL,
+  imgOne TEXT NOT NULL,
+  imgTwo TEXT NOT NULL
+)
