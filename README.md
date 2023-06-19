@@ -16,18 +16,12 @@ Also running a PostgreSQL database to store the projects.
 ## Docker
 
 for now the DB can be rand with:
-```bash
-docker-compose up -d
-
-    ```
+`docker-compose up -d`
 
 use the -d flag to run in background
 
 app can be build by:
-```bash
-cargo run
-
-    ```
+`cargo run`
 
 This will be added to a dockerfile so the compose command can build everything :)
 
